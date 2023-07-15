@@ -1,0 +1,31 @@
+.p-card--highlighted {
+    border-top: 3px solid #a87ca0;
+    margin-top: 20px;
+}
+
+.blog-p-card--post {
+    display: flex !important;
+    flex-direction: column;
+    padding: 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.p-muted-heading  {
+    margin: 0 0.5rem;
+    padding: 1rem 0.5rem 0.5rem;
+}
+
+.blog-p-card__content {
+    border-top: 1px dotted #d9d9d9;
+    margin: 0 0.5rem;
+    padding: 1rem 0.5rem 0.5rem;
+}
+
+.blog-p-card--post .blog-p-card__footer {
+    border-top: 1px dotted #d9d9d9;
+    font-size: .875rem;
+    margin: auto 0.5rem 0;
+    max-width: inherit;
+    padding: 1rem 0.5rem;
+}
+
