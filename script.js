@@ -1,9 +1,11 @@
+// Function to fetch data from a WordPress REST API
 function rendercard() {
   fetch('https://people.canonical.com/~anthonydillon/wp-json/wp/v2/posts')
     .then(response => response.json())
     .then(data => processData(data));
 }
 
+// Function to convert the data retrieved from the API into HTML card elements
 function processData(data) {
   const container = document.getElementById('posts');
 
@@ -17,7 +19,8 @@ function processData(data) {
 
     div.innerHTML = `
       <header class="highlight--design ">
-        <h5 class="p-muted-heading">${element._embedded['wp:term'][3][1]?.name ?? element._embedded['wp:term'][2][0]?.name ?? "Topic not found"}</h5>  
+        <h5 class="p-muted-heading">${element._embedded['wp:term'][3][1]?.name ?? element._embedded['wp:term'][2][0]?.name 
+        ?? "Topic not found"}</h5>  
       </header>
       <div class="blog-p-card__content">
         <a href="${element.link}"> 
@@ -33,11 +36,12 @@ function processData(data) {
       <p class="blog-p-card__footer u-no-margin--bottom">${element._embedded['wp:term'][0][0].name.endsWith('s') ? element._embedded['wp:term'][0][0].name.slice(0, -1) : element._embedded['wp:term'][0][0].name}</p>
     `;
 
-
-    //${element._embedded['wp:term'][2][0].name}
-
+// It appends the newly created <div> element to the container 
     container.appendChild(div);
   });
 }
 
 rendercard();
+
+// Explanation to the line 22 and 23: If a header with the mentioned topic name is not available at this location,
+// check the next location; otherwise, display "Topic not found".
